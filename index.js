@@ -88,6 +88,16 @@ async function run() {
       }
     });
 
+
+    // get user role ---------->
+
+    app.get("/user/:email",async (req,res)=>{
+      const email = req.params.email;
+      const result = await userCollaction.findOne({email})
+      res.send(result)
+    })
+
+
     // room apis -------------------->
 
     app.post("/rooms", async (req, res) => {
